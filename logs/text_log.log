@@ -1,0 +1,7 @@
+22:20:39.300 [OrderMain] INFO  OrderMain - 123
+22:35:00.569 [Main] INFO  Main - 17674
+22:35:00.577 [Main] INFO  Main - Cucumber[Vegetables, name='Cucumber', weight=1000, calories=3123, price=4214, stateOfPeel=true]
+22:35:00.577 [Main] INFO  Main - Cucumber[Vegetables, name='Cucumber', weight=1000, calories=3123, price=4219, stateOfPeel=true]
+22:35:00.578 [Main] INFO  Main - Tomato[Vegetables, name='Tomato', weight=1500, calories=5263, price=4529, stateOfPurity=true]
+22:35:00.578 [Main] INFO  Main - Cabbage[Vegetables, name='Cabbage', weight=1400, calories=2902, price=4712, stateOfFreshess=true]
+22:35:00.578 [SaladServiceImpl] WARN  SaladServiceImpl - No vegetables

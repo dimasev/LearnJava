@@ -1,0 +1,5 @@
+Cucumber true 1000 3123 4214
+Tomato false 1500 5263 4529
+Cabbage false 1400 2902 4712
+Chuie   ijfcdnq 1he jisd
+Cucumber false 1000 3123 4219
