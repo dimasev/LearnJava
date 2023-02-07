@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="593c765f-dcb6-44c1-a60d-667ada8dfd8a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/itacademy/array/entity/ArrayStatistic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/itacademy/array/entity/Warehouse.java" afterDir="false" />
+    <list default="true" id="593c765f-dcb6-44c1-a60d-667ada8dfd8a" name="Changes" comment="06/02">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/itacademy/array/arraymain/ArrayMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/itacademy/array/arraymain/ArrayMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,6 +116,14 @@
       <option name="presentableId" value="Default" />
       <updated>1675701709952</updated>
     </task>
+    <task id="LOCAL-00001" summary="06/02">
+      <created>1675801251906</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1675801251906</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -131,5 +136,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="07/02" />
+    <MESSAGE value="06/02" />
+    <option name="LAST_COMMIT_MESSAGE" value="06/02" />
   </component>
 </project>
