@@ -37,7 +37,16 @@ public class ArrayRepository {
     }
     public List<ArrayObject> queryPredicate(Predicate<ArrayObject> predicate){
         return arrayObjects.stream().filter(predicate).toList();
-
+    }
+    public boolean addArray(ArrayObject array){
+        return arrayObjects.add(array);
+    }
+    public void removeArray(int id){
+        for(ArrayObject arrayObject:arrayObjects){
+            if (id==arrayObject.getIdArray()){
+                arrayObjects.remove(arrayObject);
+            }
+        }
     }
     @Override
     public String toString() {

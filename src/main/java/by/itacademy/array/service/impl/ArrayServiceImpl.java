@@ -3,7 +3,6 @@ package by.itacademy.array.service.impl;
 import by.itacademy.array.service.ArrayService;
 
 import java.util.Arrays;
-import java.util.Optional;
 import java.util.OptionalDouble;
 import java.util.OptionalInt;
 
@@ -11,7 +10,7 @@ public class ArrayServiceImpl implements ArrayService {
 
 
     @Override
-    public Optional<Integer> searchMinMax(int[] array, int numberMinMax) {
+    public OptionalInt searchMinMax(int[] array, int numberMinMax) {
         int numberResult = 0;
         if (numberMinMax > 0) {
             numberResult = array[0];
@@ -28,7 +27,7 @@ public class ArrayServiceImpl implements ArrayService {
                 }
             }
         }
-        return Optional.of(numberResult);
+        return OptionalInt.of(numberResult);
     }
 
     @Override
@@ -49,14 +48,14 @@ public class ArrayServiceImpl implements ArrayService {
     }
 
     @Override
-    public Optional<Double> searchMeanValue(int[] array) {
+    public OptionalDouble searchMeanValue(int[] array) {
         double meanValue = 0;
         int sum = 0;
         for (int i = 0; i < array.length; i++) {
             sum += array[i];
         }
         meanValue = sum / array.length;
-        return Optional.of(meanValue);
+        return OptionalDouble.of(meanValue);
     }
 
     @Override
@@ -65,21 +64,21 @@ public class ArrayServiceImpl implements ArrayService {
     }
 
     @Override
-    public Optional<Integer> searchSum(int[] array) {
+    public OptionalInt searchSum(int[] array) {
         int sum = 0;
         for (int i : array) {
             sum += array[i];
         }
-        return Optional.of(sum);
+        return OptionalInt.of(sum);
     }
 
     @Override
-    public Optional<Integer> searchSumStream(int[] array) {
-        return Optional.of(Arrays.stream(array).sum());
+    public OptionalInt searchSumStream(int[] array) {
+        return OptionalInt.of(Arrays.stream(array).sum());
     }
 
     @Override
-    public Optional<Integer> searchNumberPositiveOrNegative(int[] array, int numberPositiveNegative) {
+    public OptionalInt searchNumberPositiveOrNegative(int[] array, int numberPositiveNegative) {
         int numberResult = 0;
         if (numberPositiveNegative > 0) {
             for (int i = 0; i < array.length; i++) {
@@ -94,11 +93,11 @@ public class ArrayServiceImpl implements ArrayService {
                 }
             }
         }
-        return Optional.of(numberResult);
+        return OptionalInt.of(numberResult);
     }
 
     @Override
-    public Optional<Integer> searchNumberPositiveOrNegativeStream(int[] array, int numberPositiveNegative) {
+    public OptionalInt searchNumberPositiveOrNegativeStream(int[] array, int numberPositiveNegative) {
         long number = 0;
         if (numberPositiveNegative > 0) {
             number = Arrays.stream(array).filter(i -> i > 0).count();
@@ -106,7 +105,7 @@ public class ArrayServiceImpl implements ArrayService {
         if (numberPositiveNegative < 0) {
             number = Arrays.stream(array).filter(i -> i < 0).count();
         }
-        return Optional.of((int) number);
+        return OptionalInt.of((int) number);
     }
 
     @Override

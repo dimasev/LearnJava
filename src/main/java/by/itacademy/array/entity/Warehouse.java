@@ -5,20 +5,20 @@ import java.util.Map;
 
 public class Warehouse {
     private static final Warehouse instance = new Warehouse();
-    private Map<Integer,ArrayStatistic> allData= new HashMap<>();
+    private Map<Integer, ArrayStatistics> mapArray = new HashMap<>();
     private Warehouse(){
 
     }
     public static Warehouse getInstance(){
         return instance;
     }
-    public ArrayStatistic put(Integer key, ArrayStatistic value){
-        return allData.put(key, value);
+    public ArrayStatistics put(Integer key, ArrayStatistics value){
+        return mapArray.put(key, value);
     }
-    public ArrayStatistic remove(Integer key){
-        return allData.remove(key);
+    public ArrayStatistics remove(Integer key){
+        return mapArray.remove(key);
     }
-    public ArrayStatistic replace(Integer key, ArrayStatistic value){
-        return allData.replace(key, value);
+    public ArrayStatistics replace(Integer key, ArrayStatistics value){
+        return mapArray.replace(key, value);
     }
 }
