@@ -1,19 +1,21 @@
 package by.itacademy.array.service;
 
+import by.itacademy.array.entity.ArrayObject;
+
 import java.util.OptionalDouble;
 import java.util.OptionalInt;
 
 public interface ArrayService {
-    OptionalInt searchMinMax(int[] array, int numberMinMax);
-    OptionalInt searchMinMaxStream(int[] array, int numberMinMax);
-    void replacementElement (int[] array,int ordinalNumber, int newValue);
-    OptionalDouble searchMeanValue(int[] array);
-    OptionalDouble searchMeanValueStream(int[] array);
-    OptionalInt searchSum(int[] array);
-    OptionalInt searchSumStream(int[] array);
-    OptionalInt searchNumberPositiveOrNegative(int[]array, int numberPositiveNegative);
-    OptionalInt searchNumberPositiveOrNegativeStream (int[]array, int numberPositiveNegative);
-    void sort1st(int[] array);
-    void sort2nd(int[] array);
-    void sort3d(int[] array);
+    OptionalInt searchMinMax(ArrayObject arrayObject, int numberMinMax);
+    OptionalInt searchMinMaxStream(ArrayObject arrayObject, int numberMinMax);
+    void replacementElement (ArrayObject arrayObject,int ordinalNumber, int newValue);
+    OptionalDouble searchAverageValue(ArrayObject arrayObject);
+    OptionalDouble searchAverageValueStream(ArrayObject arrayObject);
+    OptionalInt searchSum(ArrayObject arrayObject);
+    OptionalInt searchSumStream(ArrayObject arrayObject);
+    OptionalInt searchNumberPositiveOrNegative(ArrayObject arrayObject, int numberPositiveNegative);
+    OptionalInt searchNumberPositiveOrNegativeStream (ArrayObject arrayObject, int numberPositiveNegative);
+    void sort1st(ArrayObject arrayObject);
+    void sort2nd(ArrayObject arrayObject);
+    void sort3d(ArrayObject arrayObject);
 }

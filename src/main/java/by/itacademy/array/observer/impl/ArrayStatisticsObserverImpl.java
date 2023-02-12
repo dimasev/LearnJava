@@ -7,9 +7,9 @@ import by.itacademy.array.observer.ArrayStatisticsObserver;
 
 public class ArrayStatisticsObserverImpl implements ArrayStatisticsObserver {
     @Override
-    public void changeArrayElement(ArrayObject array) {
-    ArrayStatistics statistics = new ArrayStatistics(array);
-    int id = array.getIdArray();
+    public void changeArrayElement(ArrayObject arrayObject) {
+    ArrayStatistics statistics = new ArrayStatistics(arrayObject);
+    int id = arrayObject.getIdArray();
         Warehouse warehouse = Warehouse.getInstance();
         warehouse.put(id, statistics);
     }

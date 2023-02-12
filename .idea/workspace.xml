@@ -4,20 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="593c765f-dcb6-44c1-a60d-667ada8dfd8a" name="Changes" comment="07/02">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/itacademy/array/entity/ArrayStatistics.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/itacademy/array/observer/ArrayStatisticsObserver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/itacademy/array/observer/impl/ArrayStatisticsObserverImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/itacademy/array/repository/sort/AverageSort.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/itacademy/array/repository/sort/FirstElementSort.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/itacademy/array/repository/sort/IdSort.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/itacademy/array/repository/sort/LengthArraySort.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/itacademy/array/repository/sort/SumSort.java" afterDir="false" />
+    <list default="true" id="593c765f-dcb6-44c1-a60d-667ada8dfd8a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/itacademy/array/entity/ArrayStatistic.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/itacademy/array/entity/Warehouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/itacademy/array/entity/Warehouse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/itacademy/array/repository/ArrayRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/itacademy/array/repository/ArrayRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/itacademy/array/arraymain/ArrayMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/itacademy/array/arraymain/ArrayMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/itacademy/array/entity/ArrayStatistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/itacademy/array/entity/ArrayStatistics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/itacademy/array/observer/impl/ArrayStatisticsObserverImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/itacademy/array/observer/impl/ArrayStatisticsObserverImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/by/itacademy/array/service/ArrayService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/itacademy/array/service/ArrayService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/by/itacademy/array/service/impl/ArrayServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/itacademy/array/service/impl/ArrayServiceImpl.java" afterDir="false" />
     </list>

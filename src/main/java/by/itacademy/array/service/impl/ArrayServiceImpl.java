@@ -1,5 +1,6 @@
 package by.itacademy.array.service.impl;
 
+import by.itacademy.array.entity.ArrayObject;
 import by.itacademy.array.service.ArrayService;
 
 import java.util.Arrays;
@@ -10,7 +11,8 @@ public class ArrayServiceImpl implements ArrayService {
 
 
     @Override
-    public OptionalInt searchMinMax(int[] array, int numberMinMax) {
+    public OptionalInt searchMinMax(ArrayObject arrayObject, int numberMinMax) {
+        int[] array = arrayObject.getArray();
         int numberResult = 0;
         if (numberMinMax > 0) {
             numberResult = array[0];
@@ -31,7 +33,8 @@ public class ArrayServiceImpl implements ArrayService {
     }
 
     @Override
-    public OptionalInt searchMinMaxStream(int[] array, int numberMinMax) {
+    public OptionalInt searchMinMaxStream(ArrayObject arrayObject, int numberMinMax) {
+        int[] array = arrayObject.getArray();
         OptionalInt number = null;
         if (numberMinMax > 0) {
             number = Arrays.stream(array).max();
@@ -43,12 +46,14 @@ public class ArrayServiceImpl implements ArrayService {
     }
 
     @Override
-    public void replacementElement(int[] array, int ordinalNumber, int newValue) {
+    public void replacementElement(ArrayObject arrayObject, int ordinalNumber, int newValue) {
+        int[] array = arrayObject.getArray();
         array[ordinalNumber] = newValue;
     }
 
     @Override
-    public OptionalDouble searchMeanValue(int[] array) {
+    public OptionalDouble searchAverageValue(ArrayObject arrayObject) {
+        int[] array = arrayObject.getArray();
         double meanValue = 0;
         int sum = 0;
         for (int i = 0; i < array.length; i++) {
@@ -59,12 +64,16 @@ public class ArrayServiceImpl implements ArrayService {
     }
 
     @Override
-    public OptionalDouble searchMeanValueStream(int[] array) {
+    public OptionalDouble searchAverageValueStream(ArrayObject arrayObject) {
+
+        int[] array = arrayObject.getArray();
+
         return Arrays.stream(array).average();
     }
 
     @Override
-    public OptionalInt searchSum(int[] array) {
+    public OptionalInt searchSum(ArrayObject arrayObject) {
+        int[] array = arrayObject.getArray();
         int sum = 0;
         for (int i : array) {
             sum += array[i];
@@ -73,12 +82,14 @@ public class ArrayServiceImpl implements ArrayService {
     }
 
     @Override
-    public OptionalInt searchSumStream(int[] array) {
+    public OptionalInt searchSumStream(ArrayObject arrayObject) {
+        int[] array = arrayObject.getArray();
         return OptionalInt.of(Arrays.stream(array).sum());
     }
 
     @Override
-    public OptionalInt searchNumberPositiveOrNegative(int[] array, int numberPositiveNegative) {
+    public OptionalInt searchNumberPositiveOrNegative(ArrayObject arrayObject, int numberPositiveNegative) {
+        int[] array = arrayObject.getArray();
         int numberResult = 0;
         if (numberPositiveNegative > 0) {
             for (int i = 0; i < array.length; i++) {
@@ -97,7 +108,8 @@ public class ArrayServiceImpl implements ArrayService {
     }
 
     @Override
-    public OptionalInt searchNumberPositiveOrNegativeStream(int[] array, int numberPositiveNegative) {
+    public OptionalInt searchNumberPositiveOrNegativeStream(ArrayObject arrayObject, int numberPositiveNegative) {
+        int[] array = arrayObject.getArray();
         long number = 0;
         if (numberPositiveNegative > 0) {
             number = Arrays.stream(array).filter(i -> i > 0).count();
@@ -109,7 +121,8 @@ public class ArrayServiceImpl implements ArrayService {
     }
 
     @Override
-    public void sort1st(int[] array) {
+    public void sort1st(ArrayObject arrayObject) {
+        int[] array = arrayObject.getArray();
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array.length; j++) {
                 if (array[i] < array[j]) {
@@ -122,7 +135,8 @@ public class ArrayServiceImpl implements ArrayService {
     }
 
     @Override
-    public void sort2nd(int[] array) {
+    public void sort2nd(ArrayObject arrayObject) {
+        int[] array = arrayObject.getArray();
         int j;
         for (int i = 1; i < array.length; i++) {
             int swap = array[i];
@@ -134,7 +148,9 @@ public class ArrayServiceImpl implements ArrayService {
     }
 
     @Override
-    public void sort3d(int[] array) {
+    public void sort3d(ArrayObject arrayObject) {
+
+        int[] array = arrayObject.getArray();
         Arrays.sort(array);
     }
 

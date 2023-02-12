@@ -9,11 +9,38 @@ public class ArrayStatistics {
     private int min;
     private double average;
 
-    public ArrayStatistics(ArrayObject array) {
+    public ArrayStatistics(ArrayObject arrayObject) {
         ArrayService as = new ArrayServiceImpl();
-        this.sum = as.searchSumStream(array.getArray()).getAsInt();
-        this.max = as.searchMinMax(array.getArray(),1).getAsInt();
-        this.min = as.searchMinMax(array.getArray(),-1).getAsInt();
-        this.average = as.
+        this.sum = as.searchSumStream(arrayObject).getAsInt();
+        this.max = as.searchMinMax(arrayObject,1).getAsInt();
+        this.min = as.searchMinMax(arrayObject,-1).getAsInt();
+        this.average = as.searchAverageValue(arrayObject).getAsDouble();
+    }
+
+    public int getSum() {
+        return sum;
+    }
+
+    public int getMax() {
+        return max;
+    }
+
+    public int getMin() {
+        return min;
+    }
+
+    public double getAverage() {
+        return average;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("ArrayStatistics{");
+        sb.append("sum=").append(sum);
+        sb.append(", max=").append(max);
+        sb.append(", min=").append(min);
+        sb.append(", average=").append(average);
+        sb.append('}');
+        return sb.toString();
     }
 }
