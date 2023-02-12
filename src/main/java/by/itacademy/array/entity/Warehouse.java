@@ -2,6 +2,7 @@ package by.itacademy.array.entity;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.StringJoiner;
 
 public class Warehouse {
     private static final Warehouse instance = new Warehouse();
@@ -21,4 +22,6 @@ public class Warehouse {
     public ArrayStatistics replace(Integer key, ArrayStatistics value){
         return mapArray.replace(key, value);
     }
+
+
 }

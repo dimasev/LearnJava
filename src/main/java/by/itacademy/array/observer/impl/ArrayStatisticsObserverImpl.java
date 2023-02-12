@@ -12,5 +12,6 @@ public class ArrayStatisticsObserverImpl implements ArrayStatisticsObserver {
     int id = arrayObject.getIdArray();
         Warehouse warehouse = Warehouse.getInstance();
         warehouse.put(id, statistics);
+        System.out.println(statistics.toString());
     }
 }

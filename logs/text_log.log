@@ -23,3 +23,8 @@
 23:18:58.527 [Main] INFO  Main - Tomato[Vegetables, name='Tomato', weight=1500, calories=5263, price=4529, stateOfPurity=true]
 23:18:58.527 [Main] INFO  Main - Cabbage[Vegetables, name='Cabbage', weight=1400, calories=2902, price=4712, stateOfFreshess=true]
 23:18:58.527 [SaladServiceImpl] WARN  SaladServiceImpl - No vegetables
+21:26:35.039 [Storage] INFO  Storage - Boxes are taken away
+21:26:35.081 [Storage] INFO  Storage - Boxes are taken away
+21:26:36.084 [Storage] INFO  Storage - Boxes are taken away
+21:26:36.085 [Storage] INFO  Storage - Boxes are taken away
+21:26:37.085 [Storage] INFO  Storage - Boxes are taken away

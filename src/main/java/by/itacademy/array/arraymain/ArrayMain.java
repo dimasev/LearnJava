@@ -2,6 +2,8 @@ package by.itacademy.array.arraymain;
 
 
 import by.itacademy.array.entity.ArrayObject;
+import by.itacademy.array.entity.ArrayStatistics;
+import by.itacademy.array.entity.Warehouse;
 import by.itacademy.array.observer.ArrayStatisticsObserver;
 import by.itacademy.array.observer.impl.ArrayStatisticsObserverImpl;
 import by.itacademy.array.reader.ReaderArray;
@@ -22,11 +24,9 @@ public class ArrayMain {
     public static void main(String[] args) throws CustomException {
         ReaderArray readerArray =  new ReaderArrayImpl();
         ArrayService arrayService = new ArrayServiceImpl();
-        ArrayStatisticsObserver arrayStatisticsObserver = new ArrayStatisticsObserverImpl();
         List<ArrayObject> listArrays = readerArray.readArray("res\\arraydata.txt");
+        listArrays.get(0).addObserver();
         ArrayRepository repository = new ArrayRepository(listArrays);
-        for(ArrayObject ao:listArrays){
-        arrayStatisticsObserver.changeArrayElement(ao);}
 
     }
 }

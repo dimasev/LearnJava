@@ -1,21 +1,31 @@
 package by.itacademy.array.entity;
 
+import by.itacademy.array.observer.ArrayStatisticsObserver;
+import by.itacademy.array.observer.impl.ArrayStatisticsObserverImpl;
 import by.itacademy.array.util.GenerateId;
 
+import javax.print.attribute.standard.JobSheets;
 import java.util.Arrays;
 
 public class ArrayObject {
     private int idArray;
     private int[] array;
-    private int i = 0;
+    private ArrayStatisticsObserver observer;
 
     public ArrayObject(int[] array) {
         this.idArray = GenerateId.generateNextId();
-        this.array = array;
+        setArray(array);
+        observer = new ArrayStatisticsObserverImpl();
     }
 
     public int getIdArray() {
         return idArray;
+    }
+    public void addObserver(){
+        observer = new ArrayStatisticsObserverImpl();
+    }
+    public void removeObserver(){
+        observer = null;
     }
 
 
@@ -25,6 +35,12 @@ public class ArrayObject {
 
     public void setArray(int[] array) {
         this.array = array;
+        notifyObserver();
+    }
+
+    public void setElement(int value, int i) {
+        array[i] = value;
+        notifyObserver();
     }
 
     @Override
@@ -40,11 +56,15 @@ public class ArrayObject {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         ArrayObject that = (ArrayObject) o;
-
         if (idArray != that.idArray) return false;
         return Arrays.equals(array, that.array);
+    }
+    private void notifyObserver(){
+        if (observer != null) {
+            observer.changeArrayElement(this);
+        }
+
     }
 
     @Override
