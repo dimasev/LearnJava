@@ -5,20 +5,20 @@ import by.itacademy.thread.util.GenerateId;
 import java.util.StringJoiner;
 
 public class Ramp {
-    private int idRamp;
+    private int rampId;
 
     public Ramp() {
-        this.idRamp = GenerateId.generateNextIdForRamp();
+        this.rampId = GenerateId.generateNextIdForRamp();
     }
 
-    public int getIdRamp() {
-        return idRamp;
+    public int getRampId() {
+        return rampId;
     }
 
     @Override
     public String toString() {
         return new StringJoiner(", ", Ramp.class.getSimpleName() + "[", "]")
-                .add("idRamp=" + idRamp)
+                .add("rampId=" + rampId)
                 .toString();
     }
 }

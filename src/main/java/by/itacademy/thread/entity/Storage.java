@@ -5,21 +5,19 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayDeque;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
 
 public class Storage {
     static Logger logger = LogManager.getLogger();
-    private static final Storage instance = new Storage();
     private static final int MAX_COUNT_BOX = 500;
-    private static final int MIN_COUNT_BOX = 50;
-    private static final int COUNT_BROUGHT_BOX = 250;
-    private static final int COUNT_TAKEN_AWAY_BOX = 250;
-    private static final int COUNT_LOADING_BOX = 50;
+    private static final  int MIN_COUNT_BOX = 50;
+    private static final  int DELTA_BOX =250;
+    private static final  int COUNT_LOADING_BOX = 50;
 
-    private static final int DEFAULT_COUNT_BOX = 300;
-    private int countBox = DEFAULT_COUNT_BOX;
+    private  AtomicInteger countBox = new AtomicInteger(250);
     private ReentrantLock locker = new ReentrantLock(true);
     private Condition condition = locker.newCondition();
     private ArrayDeque<Ramp> arrayDeque = new ArrayDeque<>();
@@ -27,8 +25,11 @@ public class Storage {
     private Storage() {
     }
 
+    private static class StorageHolder{
+        public static final Storage HOLDER_INSTANCE = new Storage();
+    }
     public static Storage getInstance() {
-        return instance;
+        return StorageHolder.HOLDER_INSTANCE;
     }
 
     public void setArrayDeque(ArrayDeque<Ramp> arrayDeque) {
@@ -39,6 +40,9 @@ public class Storage {
         locker.lock();
         Ramp ramp;
         while ((ramp = this.arrayDeque.poll()) == null) {
+
+
+            // TODO: 15.02.2023  
             condition.awaitUninterruptibly();
         }
         locker.unlock();
@@ -52,22 +56,32 @@ public class Storage {
         locker.unlock();
     }
 
-    public synchronized int loading() {
-        if (COUNT_LOADING_BOX < MIN_COUNT_BOX) {
-            countBox += COUNT_BROUGHT_BOX;
+    public int loading() {
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        if ( countBox.get()< MIN_COUNT_BOX) {
+            countBox.addAndGet(DELTA_BOX);
             logger.log(Level.INFO, "Boxes are brought");
         }
-        countBox -= COUNT_LOADING_BOX;
+        countBox.addAndGet(-COUNT_LOADING_BOX);
         return COUNT_LOADING_BOX;
     }
 
-    public synchronized int unloading(int countBoxUnload) {
-        if (countBoxUnload + countBoxUnload > MAX_COUNT_BOX) {
-            countBox -= COUNT_TAKEN_AWAY_BOX;
+    public int unloading(int countBoxUnload) {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        if ( countBox.get() > MAX_COUNT_BOX) {
+            System.out.println(countBox.get());
+            countBox.addAndGet(-DELTA_BOX);
             logger.log(Level.INFO, "Boxes are taken away");
         }
-        countBox += countBoxUnload;
-        countBoxUnload = 0;
-        return countBoxUnload;
+        countBox.addAndGet(countBoxUnload);
+        return 0;
     }
 }

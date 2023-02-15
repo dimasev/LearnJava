@@ -8,6 +8,9 @@ import java.util.ArrayDeque;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import static by.itacademy.thread.entity.Truck.CargoType.PERISHABLE;
+import static by.itacademy.thread.entity.Truck.CargoType.USUAL;
+
 
 public class ThreadMain {
     public static void main(String[] args) {
@@ -22,8 +25,8 @@ public class ThreadMain {
         Thread t = null;
         for (int i = 0; i < 10; i++) {
             switch ((int) (Math.random() * 3)) {
-                case (0) -> t = new Truck(Truck.Type.PERISHABLE);
-                case (1) -> t = new Truck(Truck.Type.USUAL);
+                case (0) -> t = new Truck(Truck.Type.FULL, PERISHABLE);
+                case (1) -> t = new Truck(Truck.Type.FULL, USUAL);
                 case (2) -> t = new Truck(Truck.Type.EMPTY);
             }
             ExecutorService service = Executors.newFixedThreadPool(1);
