@@ -37,12 +37,10 @@ public class Storage {
     }
 
     public Ramp getRamp() {
+
         locker.lock();
         Ramp ramp;
         while ((ramp = this.arrayDeque.poll()) == null) {
-
-
-            // TODO: 15.02.2023  
             condition.awaitUninterruptibly();
         }
         locker.unlock();

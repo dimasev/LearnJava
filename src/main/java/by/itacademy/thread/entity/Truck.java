@@ -1,8 +1,13 @@
 package by.itacademy.thread.entity;
 
+import by.itacademy.thread.comparator.TruckComparator;
 import by.itacademy.thread.util.GenerateId;
 
-import java.util.StringJoiner;
+import java.util.ArrayDeque;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class Truck extends Thread {
 
@@ -18,7 +23,10 @@ public class Truck extends Thread {
     private CargoType cargoType;
     private int truckId;
     private int countBox;
-
+    private ReentrantLock locker = new ReentrantLock(true);
+    private ArrayDeque<Truck> m= new ArrayDeque<>();
+    private PriorityQueue<Truck>  w= new PriorityQueue<>(new TruckComparator());
+    private LinkedList<Truck>deque = new LinkedList<>();
     public Truck(Type type) {
         this.type = type;
         this.truckId = GenerateId.generateNextIdForTruck();
@@ -52,10 +60,24 @@ public class Truck extends Thread {
         this.type = type;
     }
 
-    public void run() {
-        System.out.println(this);
+    public  void run() {
+        locker.lock();
         Storage storage = Storage.getInstance();
+        if (this.getCargoType()!=null) {
+            if(this.getCargoType() ==CargoType.PERISHABLE){
+             deque.addFirst(this);
+
+            }
+            else{
+               deque.add(this);}}
+            locker.unlock();
+
+            while (!deque.isEmpty()) {
+                System.out.println(deque.poll());
+            }
+
         Ramp ramp = storage.getRamp();
+
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
@@ -79,9 +101,9 @@ public class Truck extends Thread {
                         setType(Type.EMPTY);
                         setCargoType(null);
                     }
+                }
             }
-        }}
-        System.out.println(this);
+        }
         storage.releaseRamp(ramp);
 
     }
@@ -90,8 +112,9 @@ public class Truck extends Thread {
     public String toString() {
         final StringBuilder sb = new StringBuilder("Truck{");
         sb.append("type=").append(type);
-        if(!(cargoType==null)){
-        sb.append(", cargoType=").append(cargoType);}
+        if (!(cargoType == null)) {
+            sb.append(", cargoType=").append(cargoType);
+        }
         sb.append(", truckId=").append(truckId);
         sb.append(", countBox=").append(countBox);
         sb.append('}');

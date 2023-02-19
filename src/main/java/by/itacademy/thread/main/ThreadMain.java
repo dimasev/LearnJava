@@ -29,7 +29,7 @@ public class ThreadMain {
                 case (1) -> t = new Truck(Truck.Type.FULL, USUAL);
                 case (2) -> t = new Truck(Truck.Type.EMPTY);
             }
-            ExecutorService service = Executors.newFixedThreadPool(1);
+            ExecutorService service = Executors.newFixedThreadPool(10);
             service.execute(t);
             service.shutdown();
         }
